@@ -1,0 +1,116 @@
+@import 'tailwindcss';
+
+/*
+  Identidad visual: "libreta contable". Papel verde pálido de libro de contabilidad,
+  tinta verde oscura, verde libro para lo que entra y rojo para lo que sale
+  ("números rojos"). Serif de libro para cifras grandes y títulos; sans del sistema
+  para la interfaz; cifras tabulares para que los montos se alineen como en un libro mayor.
+*/
+:root {
+  --paper: #f2f5f1;
+  --sheet: #fbfcfa;
+  --ink: #17231f;
+  --ink-soft: #5b6b64;
+  --rule: #d3ded7;
+  --rule-strong: #b7c7bd;
+  --ledger: #2f6b4f;
+  --ledger-tint: #e2eee6;
+  --red: #b03a3a;
+  --red-tint: #f6e4e2;
+  --amber: #9a6512;
+  --amber-tint: #f7ecd8;
+  --blue: #2b5c8a;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #101917;
+    --sheet: #16211e;
+    --ink: #e3ece7;
+    --ink-soft: #95a79f;
+    --rule: #26332e;
+    --rule-strong: #34443e;
+    --ledger: #6bbf92;
+    --ledger-tint: #1b3127;
+    --red: #e07a72;
+    --red-tint: #3a2322;
+    --amber: #e0b04f;
+    --amber-tint: #382c17;
+    --blue: #7fb2e5;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-sheet: var(--sheet);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-ledger: var(--ledger);
+  --color-ledger-tint: var(--ledger-tint);
+  --color-red: var(--red);
+  --color-red-tint: var(--red-tint);
+  --color-amber: var(--amber);
+  --color-amber-tint: var(--amber-tint);
+  --color-blue: var(--blue);
+  --font-serif: Charter, 'Bitstream Charter', 'Sitka Text', Cambria, Georgia, serif;
+  --font-sans: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+html {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+@layer components {
+  .num {
+    font-variant-numeric: tabular-nums lining-nums;
+  }
+
+  /* Foco visible para teclado en todo control. */
+  :where(a, button, input, select, textarea, summary):focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Campos de formulario coherentes. */
+  .field {
+    width: 100%;
+    min-height: 2.5rem;
+    padding: 0.45rem 0.65rem;
+    border: 1px solid var(--rule-strong);
+    border-radius: 6px;
+    background: var(--sheet);
+    color: var(--ink);
+  }
+  .field::placeholder {
+    color: var(--ink-soft);
+    opacity: 0.8;
+  }
+
+  /* Filas rayadas tipo libro mayor. */
+  .ledger-rows > * + * {
+    border-top: 1px solid var(--rule);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
