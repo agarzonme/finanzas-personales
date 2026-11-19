@@ -1,0 +1,28 @@
+# Dependencias y builds
+node_modules/
+.next/
+out/
+build/
+coverage/
+*.tsbuildinfo
+
+# Datos personales: la base de datos y los respaldos NUNCA se suben
+data/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm
+respaldo*.json
+backup*.json
+*.csv
+
+# Secretos
+.env
+.env.*
+!.env.example
+
+# Vercel y sistema
+.vercel/
+.DS_Store
+Thumbs.db
+npm-debug.log*
