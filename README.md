@@ -40,7 +40,7 @@ npm start
 
 1. **Base de datos.** Crea una cuenta en [turso.tech](https://turso.tech) (plan gratis, sin tarjeta), crea una base llamada `mis-finanzas`, copia su URL (`libsql://…turso.io`) y genera un token.
 2. **Contraseña.** En tu computador corre `npm run hash-password -- "una-clave-larga"` y guarda las dos líneas que imprime.
-3. **Código.** Sube esta carpeta a un repositorio privado de GitHub (el `.gitignore` ya excluye `data/` y `.env`).
+3. **Código.** Sube tu copia a GitHub. Puede ser pública: el `.gitignore` deja fuera `data/`, los respaldos y el `.env`, así que tus datos y claves nunca se suben.
 4. **Vercel.** En [vercel.com](https://vercel.com) importa el repositorio y agrega estas variables de entorno antes del primer deploy:
    - `DATABASE_URL` = la URL de Turso
    - `DATABASE_AUTH_TOKEN` = el token de Turso
